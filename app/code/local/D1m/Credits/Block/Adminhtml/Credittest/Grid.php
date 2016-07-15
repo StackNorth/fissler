@@ -68,6 +68,7 @@ class D1m_Credits_Block_Adminhtml_Credittest_Grid extends Mage_Adminhtml_Block_W
 
         $this->getMassactionBlock()->addItem('delete', array(
             'label'    => Mage::helper('d1m_credits')->__('Delete'),
+            'id'       => Mage::getModel('d1m_credits/test')->getId(),
             'url'      => $this->getUrl('*/*/massDelete'),
             'confirm'  => Mage::helper('d1m_credits')->__('Are you sure?')
         ));

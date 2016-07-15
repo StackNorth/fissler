@@ -6,7 +6,7 @@ class D1m_Credits_Block_Adminhtml_Creditorder_List extends Mage_Adminhtml_Block_
     {
         $this->_controller = 'adminhtml_creditorder';
         $this->_blockGroup = 'd1m_credits';
-        $this->_headerText = Mage::helper('d1m_credits')->__('Manage Credit Order1');
+        $this->_headerText = Mage::helper('d1m_credits')->__('Manage Credit Order');
        
         
         //$this->setTemplate('widget/grid/container.phtml');

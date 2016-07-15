@@ -76,7 +76,7 @@ class D1m_Credits_Adminhtml_ReportController extends Mage_Adminhtml_Controller_A
             $this->_initAction();
             $order = Mage::getModel('d1m_credits/order')->load($orderId);
             Mage::register('current_order', $order);
-
+            
             $this->_title($this->__('设置订单价格'));
             $this->_addContent($this->getLayout()->createBlock('d1m_credits/adminhtml_order_edit'));
             $this->renderLayout();
