@@ -1,0 +1,27 @@
+<?php
+/**
+ * Created by Victor Guo
+ * Date: 13-8-15
+ * Time: 下午4:27
+ */
+class D1m_Credits_Block_Adminhtml_Credittest_Edit_Tabs extends Mage_Adminhtml_Block_Widget_Tabs
+{
+    public function _construct()
+    {
+        parent::_construct();
+        $this->setId('credit_tabs');
+        $this->setDestElementId('edit_form');
+        $this->setTitle($this->__('credit Information'));
+
+    }
+
+    protected function _beforeToHtml()
+    {
+        $this->addTab('form_selection', array(
+            'label' => $this->__('Slide Information'),
+            'alt' => $this->__('Slide Information'),
+            'content' => $this->getLayout()->createBlock('d1m_credits/adminhtml_credittest_edit_tab_form')->toHtml()
+        ));
+        return parent::_beforeToHtml();
+    }
+}
