@@ -16,12 +16,12 @@ class D1m_Credits_Model_Test extends Mage_Core_Model_Abstract
         $this->_init('d1m_credits/test');
     }
 
-    public function getStatus()
+    /*public function getStatus()
     {
         $dbr = Mage::getSingleton( 'core/resource' )->getConnection( 'core_read' );
         $sql = "select status from aca_credits_test where id = '".$this->getId()."'";
         return $this->Status = $dbr->fetchOne($sql);
 
 
-    }
+    }*/
 }

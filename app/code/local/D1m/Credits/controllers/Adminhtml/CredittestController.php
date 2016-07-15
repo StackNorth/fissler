@@ -23,12 +23,13 @@ class D1m_Credits_Adminhtml_CredittestController extends Mage_Adminhtml_Controll
         return $this;
     }
     public function editAction(){
-        $testId = (int)$this->getRequest()->getParam('id');
-
+       // $testId = (int)$this->getRequest()->getParam('id');
+       // var_dump($testId);
         $this->_initAction();
-        $test = Mage::getModel('d1m_credits/test')->load($testId);
+        $test = Mage::getModel('d1m_credits/test');
 
-
+      //  var_dump($test);
+      //  exit();
         Mage::register('credits_test', $test);
 
         $this->_title($this->__('测试修改'));
@@ -71,8 +72,11 @@ class D1m_Credits_Adminhtml_CredittestController extends Mage_Adminhtml_Controll
                 return;
             }
 
-            $Status = $postData['record']['Status'];
-
+            $Status   = $postData['record']['Status'];
+            $email    = $postData['record']['email'];
+            $title    = $postData['record']['title'];
+            $content  = $postData['record']['content'];
+            $time     = $postData['record']['time'];
             $data = new Varien_Object($postData['record']);
 
             //check brand id
@@ -82,9 +86,16 @@ class D1m_Credits_Adminhtml_CredittestController extends Mage_Adminhtml_Controll
             if ($creditData->getId()) {
                 $credittest->setId($creditData->getId());
                 $credittest->setStatus($Status);
+                $credittest->setTitle($title);
+                $credittest->setEmail($email);
+                $credittest->setContent($content);
+                $credittest->setTime($time);
 
             }else{
-                $credittest->setId($data->getId())->setStatus($Status);
+                $credittest->setId($data->getId())->setStatus($Status)->setContent($content)
+                    ->setTime($time)->setEmail($email)->setTitle($title)
+                ;
+                var_dump($credittest);
 
             }
             try {

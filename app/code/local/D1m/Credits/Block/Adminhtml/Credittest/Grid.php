@@ -15,15 +15,15 @@ class D1m_Credits_Block_Adminhtml_Credittest_Grid extends Mage_Adminhtml_Block_W
     protected function _prepareCollection()
     {
 
-        $collection = Mage::getResourceModel('d1m_credits/test_collection');
-       $collection->getSelect()->reset('columns')->columns(array('id','status'));
+        $collection = Mage::getResourceModel('d1m_credits/test_collection');//在Model下的Mysql下的Test下的Collection文件
+       $collection->getSelect()->reset('columns')->columns(array('id','status','title','content','email','time'));//获取数据
 
 
         $this->setCollection($collection);
 
         return parent::_prepareCollection();
     }
-
+    //设置表头显示的列
     protected function _prepareColumns()
     {
         $this->addColumn('id', array(
@@ -32,13 +32,38 @@ class D1m_Credits_Block_Adminhtml_Credittest_Grid extends Mage_Adminhtml_Block_W
             'width'     => '50px',
             'index'     => 'id',
         ));
-
+        //添加列数据
         $this->addColumn('status', array(
             'header'    => Mage::helper('d1m_credits')->__('状态'),
             'align'     => 'left',
             'index'     => 'status',
 
         ));
+        $this->addColumn('title', array(
+            'header'    => Mage::helper('d1m_credits')->__('标题'),
+            'align'     => 'left',
+            'index'     => 'title',
+
+        ));
+        $this->addColumn('content', array(
+            'header'    => Mage::helper('d1m_credits')->__('内容'),
+            'align'     => 'left',
+            'index'     => 'content',
+
+        ));
+        $this->addColumn('email', array(
+            'header'    => Mage::helper('d1m_credits')->__('邮箱'),
+            'align'     => 'left',
+            'index'     => 'email',
+
+        ));
+        $this->addColumn('time', array(
+            'header'    => Mage::helper('d1m_credits')->__('时间'),
+            'align'     => 'left',
+            'index'     => 'time',
+
+        ));
+        //添加链接，
         $this->addColumn('action', array(
             'header' => $this->__('Action'),
             'width' => '80px',
