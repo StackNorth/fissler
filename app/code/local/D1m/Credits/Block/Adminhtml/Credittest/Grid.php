@@ -16,7 +16,7 @@ class D1m_Credits_Block_Adminhtml_Credittest_Grid extends Mage_Adminhtml_Block_W
     {
 
         $collection = Mage::getResourceModel('d1m_credits/test_collection');//在Model下的Mysql下的Test下的Collection文件
-       $collection->getSelect()->reset('columns')->columns(array('id','status','title','content','email','time'));//获取数据
+        $collection->getSelect()->reset('columns')->columns(array('id','status','title','content','email','time','img','type'));//获取数据
 
 
         $this->setCollection($collection);
@@ -51,6 +51,13 @@ class D1m_Credits_Block_Adminhtml_Credittest_Grid extends Mage_Adminhtml_Block_W
             'index'     => 'content',
 
         ));
+        $this->addColumn('test_type', array(
+            'header'    => Mage::helper('d1m_credits')->__('文章类型'),
+            'align'     => 'left',
+            'index'     => 'type',
+           
+
+        ));
         $this->addColumn('email', array(
             'header'    => Mage::helper('d1m_credits')->__('邮箱'),
             'align'     => 'left',
@@ -63,6 +70,18 @@ class D1m_Credits_Block_Adminhtml_Credittest_Grid extends Mage_Adminhtml_Block_W
             'index'     => 'time',
 
         ));
+        $this->addColumn('testimg', array(
+            'header'    => $this->__('图片'),
+            'align'     =>'left',
+            'type' 	  => 'image',
+            'index'     => 'img',
+            'width'     =>  '100px',
+            'renderer' => 'd1m_credits/adminhtml_credittest_grid_column_renderer_image', //get the image HTML code
+            'style' => 'text-align:center',
+            'filter'    => false,
+            'sortable'  => false,
+        ));
+        
         //添加链接，
         $this->addColumn('action', array(
             'header' => $this->__('Action'),

@@ -307,5 +307,6 @@ class D1m_Credits_CheckoutController extends Mage_Core_Controller_Front_Action
 
 
     }
+   
     
 }

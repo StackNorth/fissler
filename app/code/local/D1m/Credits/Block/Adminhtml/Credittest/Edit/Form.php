@@ -34,6 +34,13 @@ class D1m_Credits_Block_Adminhtml_Credittest_Edit_Form extends Mage_Adminhtml_Bl
             'label' => Mage::helper('adminhtml')->__('标题'),
             'value' => Mage::registry('credits_test')->getTitle(),
         ));
+        $fieldset->addField('test_type','select', array(
+            'name' => 'test_type',
+            'label' => Mage::Helper('adminhtml')->__('类型'),
+            'values' => array('小说' => '小说'
+            , '散文' => '散文', '诗歌' => '诗歌'),
+
+        ));
         $fieldset->addField('content', 'text', array(
             'name' => 'content',
             'label' => Mage::helper('adminhtml')->__('内容'),
@@ -48,6 +55,14 @@ class D1m_Credits_Block_Adminhtml_Credittest_Edit_Form extends Mage_Adminhtml_Bl
             'name' => 'email',
             'label' => Mage::helper('adminhtml')->__('邮箱'),
             'value' => Mage::registry('credits_test')->getEmail(),
+        ));
+
+        $fieldset->addField('filename', 'image', array(
+            'label' => $this->__('Image'),
+            'required' => true,
+            'name' => 'filename',
+           // 'renderer' => 'd1m_credits/adminhtml_credittest_grid_column_renderer_image', //get the image HTML code
+            'value' => Mage::registry('credits_test')->getImg()
         ));
 
 

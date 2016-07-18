@@ -111,6 +111,7 @@ class D1m_Slides_Adminhtml_D1mslidesController extends Mage_Adminhtml_Controller
                 {
                     $model->setUpdateTime($now->format('Y-m-d H:i:s'));
                 }
+
                 $model->save();
                 Mage::getSingleton('adminhtml/session')
                     ->addSuccess($this->__('Slide was successfully saved'));
